@@ -1,4 +1,3 @@
-import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/bloc/cubit/cubit.dart';
@@ -6,12 +5,13 @@ import 'package:shop_app/bloc/cubit/states.dart';
 import 'package:shop_app/shared/component.dart';
 import 'package:shop_app/shared/constant.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:shop_app/translation/locale_keys.g.dart';
 
 class SettingsScreen extends StatelessWidget {
   final nameController=TextEditingController();
   final phoneController=TextEditingController();
   final emailController=TextEditingController();
+
+ SettingsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class SettingsScreen extends StatelessWidget {
                         }
                         return null;
                       },
-                      label: LocaleKeys.userName.tr(),
+                      label: "user name",
                       prefix: Icons.person,
                     ),
                    const SizedBox(
@@ -66,7 +66,7 @@ class SettingsScreen extends StatelessWidget {
                         }
                         return null;
                       },
-                      label:  LocaleKeys.emailAddress.tr(),
+                      label:  "emailAddress",
                       prefix: Icons.email,
                     ),
                    const SizedBox(
@@ -83,33 +83,11 @@ class SettingsScreen extends StatelessWidget {
                         }
                         return null;
                       },
-                      label:  LocaleKeys.phone.tr(),
+                      label:  "phone",
                       prefix: Icons.phone,
                     ),
-                   const SizedBox(
-                      height: 15.0,
-                    ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                            ElevatedButton(onPressed: ()async
-                            {
-                             await context.setLocale( const Locale('en'));
-                             
-                              //ShopCubit.get(context).changeLanguage('en');
-                              
-                            }, 
-                            child: const Text("English")),
-
-                            ElevatedButton(onPressed: ()async
-                            {
-                              await context.setLocale( const Locale('ar'));
-                              //ShopCubit.get(context).changeLanguage('ar');
-                            }, 
-                            child: const Text("العربية"))
-                        ],
-                      ),
-                    defaultTextButton(text: LocaleKeys.update.tr(),
+                   
+                    defaultTextButton(text:"update",
                       function:(){
                       if(formKey.currentState!.validate())
                         {
@@ -125,7 +103,7 @@ class SettingsScreen extends StatelessWidget {
                       height: 15.0,
                     ),
 
-                    defaultTextButton(text: LocaleKeys.logout.tr(),
+                    defaultTextButton(text: "logout",
                       function:(){
                       signOut(context);
                     },

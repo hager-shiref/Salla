@@ -16,10 +16,10 @@ class Data {
   int? from;
   int? lastPage;
   String? lastPageUrl;
-  Null nextPageUrl;
+  int? nextPageUrl;
   String? path;
   int? perPage;
-  Null prevPageUrl;
+  int? prevPageUrl;
   int? to;
   int? total;
   Data.fromJson(Map<String, dynamic> json) {

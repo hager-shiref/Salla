@@ -1,5 +1,4 @@
 
-import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/bloc/cubit/cubit.dart';
@@ -9,7 +8,6 @@ import 'package:shop_app/models/categories_model.dart';
 import 'package:shop_app/models/home_model.dart';
 import 'package:shop_app/shared/component.dart';
 import 'package:shop_app/shared/constant.dart';
-import 'package:shop_app/translation/locale_keys.g.dart';
 
 class ProductsScreen extends StatelessWidget {
   const ProductsScreen({Key? key}) : super(key: key);
@@ -68,10 +66,10 @@ class ProductsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   Text(
-                    LocaleKeys.categories.tr(),
+                  const Text(
+                    "categories",
                     style:
-                       const  TextStyle(fontSize: 24.0, fontWeight: FontWeight.w800),
+                         TextStyle(fontSize: 24.0, fontWeight: FontWeight.w800),
                   ),
                   const SizedBox(
                     height: 10.0,
@@ -92,10 +90,10 @@ class ProductsScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20.0,
                   ),
-                   Text(
-                    LocaleKeys.newProducts.tr(),
+                  const Text(
+                    "newProducts",
                     style:
-                    const   TextStyle(fontSize: 24.0, fontWeight: FontWeight.w800),
+                     TextStyle(fontSize: 24.0, fontWeight: FontWeight.w800),
                   ),
                 ],
               ),
@@ -139,9 +137,9 @@ class ProductsScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                         horizontal: 5.0,
                       ),
-                      child:  Text(
-                        LocaleKeys.discount.tr(),
-                        style:const TextStyle(fontSize: 8.0, color: Colors.white),
+                      child: const Text(
+                        "discount",
+                        style:TextStyle(fontSize: 8.0, color: Colors.white),
                       ),
                     )
                 ],

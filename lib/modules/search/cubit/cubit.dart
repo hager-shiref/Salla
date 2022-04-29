@@ -1,7 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_app/bloc/cubit/cubit.dart';
 import 'package:shop_app/models/search.dart';
 import 'package:shop_app/modules/search/cubit/states.dart';
 import 'package:shop_app/network/remote/dio_helper.dart';
@@ -37,7 +35,7 @@ class SearchCubit extends Cubit<SearchStates> {
       emit(SearchSuccessState()) ;
     }).catchError((error)
     {
-      print(error.toString()) ;
+      //print(error.toString()) ;
       emit(SearchErrorState(error.toString()),);
     });
   }

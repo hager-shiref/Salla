@@ -1,6 +1,5 @@
 // ignore_for_file: avoid_print
 
-import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/layout/shop_layout.dart';
@@ -10,7 +9,6 @@ import 'package:shop_app/network/local/cach_helper.dart';
 import 'package:shop_app/shared/component.dart';
 import 'package:shop_app/shared/constant.dart';
 import 'package:shop_app/modules/login_screen/cubit/states.dart';
-import 'package:shop_app/translation/locale_keys.g.dart';
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -56,14 +54,14 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        LocaleKeys.login.tr().toUpperCase(),
+                        "LOGIN",
                         style: Theme.of(context)
                             .textTheme
                             .headline4!
                             .copyWith(color: Colors.black),
                       ),
                       Text(
-                        LocaleKeys.loginNow.tr(),
+                        "login now to enjoy with our hot offers ",
                         style: Theme.of(context)
                             .textTheme
                             .bodyText1!
@@ -74,7 +72,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       defaultFormField(
                         onTap: (){},
-                          label: LocaleKeys.emailAddress.tr(),
+                          label:"emailAddress",
                           validate: (value) {
                             if (value.isEmpty || value == null) {
                               return 'please , enter your email';
@@ -89,7 +87,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       defaultFormField(
                         onTap: (){},
-                          label: LocaleKeys.password.tr(),
+                          label:"password",
                           isPassword:
                               ShopLoginCubit.get(context).isPasswordShown,
                           onSubmit: (value) {
@@ -125,7 +123,7 @@ class LoginScreen extends StatelessWidget {
                                       password: passwordController.text);
                                 }
                               },
-                              text: LocaleKeys.login.tr().toUpperCase())
+                              text:"LOGIN")
                           : const Center(child: CircularProgressIndicator()),
                       const SizedBox(
                         height: 20.0,
@@ -133,13 +131,13 @@ class LoginScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                           Text(LocaleKeys.haveAccount.tr()),
+                          const Text("Don't have an Account ?  "),
                           InkWell(
                             onTap: () {
                               navigateTo(context, ShopRegisterScreen());
                             },
                             child: Text(
-                              LocaleKeys.register.toUpperCase(),
+                              "REGISTER",
                               style: TextStyle(color: defaultColor),
                             ),
                           )

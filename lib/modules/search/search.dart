@@ -1,15 +1,16 @@
-import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/modules/search/cubit/cubit.dart';
 import 'package:shop_app/modules/search/cubit/states.dart';
 import 'package:shop_app/shared/component.dart';
-import 'package:shop_app/translation/locale_keys.g.dart';
 
 class SearchScreen extends StatelessWidget {
+  
   final searchController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
+
+   SearchScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class SearchScreen extends StatelessWidget {
                           SearchCubit.get(context).search(text: text);
                         }
                       },
-                      label: LocaleKeys.search.tr(),
+                      label: "search",
                       prefix: Icons.search,
                     ),
                     const SizedBox(

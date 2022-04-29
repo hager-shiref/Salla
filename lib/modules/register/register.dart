@@ -1,4 +1,3 @@
-import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/layout/shop_layout.dart';
@@ -7,7 +6,6 @@ import 'package:shop_app/modules/register/cubit/states.dart';
 import 'package:shop_app/network/local/cach_helper.dart';
 import 'package:shop_app/shared/component.dart';
 import 'package:shop_app/shared/constant.dart';
-import 'package:shop_app/translation/locale_keys.g.dart';
 
 class ShopRegisterScreen extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
@@ -15,6 +13,8 @@ class ShopRegisterScreen extends StatelessWidget {
   final passwordController = TextEditingController();
   final nameController = TextEditingController();
   final phoneController = TextEditingController();
+
+   ShopRegisterScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -47,7 +47,7 @@ class ShopRegisterScreen extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              title:  Text(LocaleKeys.register.tr()),
+              title: const Text("Register"),
             ),
             body: Center(
               child: SingleChildScrollView(
@@ -58,13 +58,13 @@ class ShopRegisterScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(LocaleKeys.register.tr(),
+                        Text("register",
                             style: Theme.of(context)
                                 .textTheme
                                 .headline4!
                                 .copyWith(color: Colors.black)),
                         Text(
-                          LocaleKeys.registerNow.tr(),
+                          "registerNow",
                           style: Theme.of(context)
                               .textTheme
                               .bodyText1!
@@ -82,7 +82,7 @@ class ShopRegisterScreen extends StatelessWidget {
                             }
                             return null;
                           },
-                          label: LocaleKeys.userName.tr(),
+                          label: "userName",
                           prefix: Icons.person,
                           onTap: null,
                         ),
@@ -98,7 +98,7 @@ class ShopRegisterScreen extends StatelessWidget {
                             }
                             return null;
                           },
-                          label:LocaleKeys.emailAddress.tr(),
+                          label:"emailAddress",
                           prefix: Icons.email_outlined,
                         ),
                         const SizedBox(
@@ -114,7 +114,7 @@ class ShopRegisterScreen extends StatelessWidget {
                               }
                               return null;
                             },
-                            label: LocaleKeys.password.tr(),
+                            label: "password",
                             prefix: Icons.lock_outline,
                             suffix: ShopRegisterCubit.get(context).suffix,
                             isPassword:
@@ -135,7 +135,7 @@ class ShopRegisterScreen extends StatelessWidget {
                             }
                             return null;
                           },
-                          label: LocaleKeys.phone.tr(),
+                          label: "phone",
                           prefix: Icons.phone,
                         ),
                         const SizedBox(
@@ -144,7 +144,7 @@ class ShopRegisterScreen extends StatelessWidget {
                         state is! ShopRegisterLoadingState
                             ? Center(
                               child: defaultTextButton(
-                                  text: LocaleKeys.register.tr(),
+                                  text: "register",
                                   function: () {
                                     if (formKey.currentState!.validate()) {
                                       ShopRegisterCubit.get(context).userRegister(

@@ -1,11 +1,9 @@
-import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/bloc/cubit/cubit.dart';
 import 'package:shop_app/bloc/cubit/states.dart';
 import 'package:shop_app/modules/search/search.dart';
 import 'package:shop_app/shared/component.dart';
-import 'package:shop_app/translation/locale_keys.g.dart';
 
 class ShopLayout extends StatelessWidget {
   const ShopLayout({Key? key}) : super(key: key);
@@ -34,14 +32,14 @@ class ShopLayout extends StatelessWidget {
               cubit.changeBottom(index);
             },
             currentIndex: cubit.currentIndex,
-            items:  [
-              BottomNavigationBarItem(icon:const Icon(Icons.home), label: LocaleKeys.home.tr()),
+            items:const  [
+              BottomNavigationBarItem(icon:Icon(Icons.home), label: "Home"),
+               BottomNavigationBarItem(
+                  icon:  Icon(Icons.apps), label:"categories"),
               BottomNavigationBarItem(
-                  icon: const Icon(Icons.apps), label: LocaleKeys.categories.tr()),
+                  icon: Icon(Icons.favorite_outlined), label:"Favourites"),
               BottomNavigationBarItem(
-                  icon:const Icon(Icons.favorite_outlined), label:LocaleKeys.favourites.tr()),
-              BottomNavigationBarItem(
-                  icon:const Icon(Icons.settings), label: LocaleKeys.settings.tr())
+                  icon: Icon(Icons.settings), label: "Settings")
             ],
           ),
         );

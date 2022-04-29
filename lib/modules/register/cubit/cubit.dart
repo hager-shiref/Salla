@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_app/bloc/cubit/cubit.dart';
 import 'package:shop_app/models/login_model.dart';
 import 'package:shop_app/modules/register/cubit/states.dart';
 import 'package:shop_app/network/remote/dio_helper.dart';
 import 'package:shop_app/network/remote/end_points.dart';
-import 'package:shop_app/shared/constant.dart';
 
 class ShopRegisterCubit extends Cubit<ShopRegisterStates> {
   ShopRegisterCubit() : super(ShopRegisterInitialState());
@@ -32,11 +30,11 @@ class ShopRegisterCubit extends Cubit<ShopRegisterStates> {
         'name': name,
       },
     ).then((value) {
-      print(value.data);
+      //print(value.data);
       loginModel = ShopLoginModel.fromJson(value.data);
       emit(ShopRegisterSuccessState(loginModel));
     }).catchError((error) {
-      print(error.toString());
+      //print(error.toString());
       emit(ShopRegisterErrorState(error.toString()));
     });
   }
