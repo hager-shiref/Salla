@@ -157,5 +157,3 @@ class ShopCubit extends Cubit<ShopStates> {
         }
   }
 }
-
-  

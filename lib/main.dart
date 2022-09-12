@@ -1,10 +1,7 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/bloc/cubit/cubit.dart';
 import 'package:shop_app/layout/shop_layout.dart';
-import 'package:shop_app/modules/login_screen/cubit/cubit.dart';
-import 'package:shop_app/modules/login_screen/cubit/states.dart';
 import 'package:shop_app/modules/login_screen/login_screen.dart';
 import 'package:shop_app/network/local/cach_helper.dart';
 import 'package:shop_app/shared/themes.dart';
