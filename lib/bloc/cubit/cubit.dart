@@ -20,7 +20,6 @@ class ShopCubit extends Cubit<ShopStates> {
   ShopCubit() : super(ShopInitialState());
   static ShopCubit get(context) => BlocProvider.of(context);
   //=======================================================================================================================================================
-
   int currentIndex = 0;
   List<Widget> screen = [
     const ProductsScreen(),
