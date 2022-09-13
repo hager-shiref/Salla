@@ -15,13 +15,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.3.1"
-  async:
-    dependency: transitive
-    description:
-      name: async
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.9.0"
   bloc:
     dependency: "direct main"
     description:
@@ -29,13 +22,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.2.1"
-  boolean_selector:
-    dependency: transitive
-    description:
-      name: boolean_selector
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.0"
   carousel_slider:
     dependency: "direct main"
     description:
@@ -106,13 +92,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.6"
-  fake_async:
-    dependency: transitive
-    description:
-      name: fake_async
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.3.1"
   ffi:
     dependency: transitive
     description:
@@ -132,6 +111,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_app_name:
+    dependency: "direct main"
+    description:
+      name: flutter_app_name
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1"
   flutter_bloc:
     dependency: "direct main"
     description:
@@ -146,20 +132,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.10.0"
-  flutter_lints:
-    dependency: "direct dev"
-    description:
-      name: flutter_lints
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.4"
   flutter_localizations:
     dependency: "direct main"
-    description: flutter
-    source: sdk
-    version: "0.0.0"
-  flutter_test:
-    dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -188,7 +162,7 @@ packages:
       name: image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.0"
+    version: "3.1.3"
   intl:
     dependency: transitive
     description:
@@ -210,20 +184,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.6.0"
-  lints:
-    dependency: transitive
-    description:
-      name: lints
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1"
-  matcher:
-    dependency: transitive
-    description:
-      name: matcher
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.12.12"
   material_color_utilities:
     dependency: transitive
     description:
@@ -383,20 +343,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.9.0"
-  stack_trace:
-    dependency: transitive
-    description:
-      name: stack_trace
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.10.0"
-  stream_channel:
-    dependency: transitive
-    description:
-      name: stream_channel
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.0"
   string_scanner:
     dependency: transitive
     description:
@@ -411,13 +357,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"
-  test_api:
-    dependency: transitive
-    description:
-      name: test_api
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.12"
   typed_data:
     dependency: transitive
     description:
@@ -452,7 +391,7 @@ packages:
       name: xml
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.1.0"
+    version: "5.4.1"
   yaml:
     dependency: transitive
     description:
