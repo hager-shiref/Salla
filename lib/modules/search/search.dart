@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_app/localization/app_localization.dart';
 import 'package:shop_app/modules/search/cubit/cubit.dart';
 import 'package:shop_app/modules/search/cubit/states.dart';
 import 'package:shop_app/shared/component.dart';
@@ -41,7 +42,7 @@ class SearchScreen extends StatelessWidget {
                           SearchCubit.get(context).search(text: text);
                         }
                       },
-                      label: "search",
+                      label: "search".tr(context),
                       prefix: Icons.search,
                     ),
                     const SizedBox(

@@ -12,15 +12,17 @@ class FavoriteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<ShopCubit,ShopStates>(
       builder: (context,state){
-        return state is! ShopLoadingGetFavoritesState?
-        ListView.separated(itemBuilder: (context,index)=>Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: buildFavourite(ShopCubit.get(context).favoritesModel!.data!.data[index],context),
-        )
+        return Center(
+          child: ListView.separated(itemBuilder: (context,index)=>Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: buildFavourite(ShopCubit.get(context).favoritesModel!.data!.data[index],context),
+          )
     , separatorBuilder: (context,index)=>const Divider(height: 2,color: Colors.grey,),
-     itemCount: ShopCubit.get(context).favoritesModel!.data!.data.length):
-     const Center(child: CircularProgressIndicator());
-      }, listener: (context,state){});
+     itemCount: ShopCubit.get(context).favoritesModel!.data!.data.length),
+        );
+
+      },
+        listener: (context,state){});
   }
   Widget buildFavourite(FavoritesData model,context){
     return SizedBox(

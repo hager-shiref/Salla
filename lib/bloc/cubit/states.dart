@@ -66,11 +66,3 @@ class ShopErrorUpdateUserDataState extends ShopStates
   ShopErrorUpdateUserDataState(this.error);
 }
 
-class ShopChangeLanguageToEnglish extends ShopStates{
-  final String language;
-  ShopChangeLanguageToEnglish(this.language);
-}
-class ShopChangeLanguageToArabic extends ShopStates{
-  final String language;
-  ShopChangeLanguageToArabic(this.language);
-}

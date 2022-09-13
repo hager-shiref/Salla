@@ -14,7 +14,7 @@ import 'package:shop_app/modules/on_boarding/on_boarding_screen.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp(startWidget: OnBoardingScreen(),));
+    await tester.pumpWidget( MyApp(startWidget:const OnBoardingScreen()));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

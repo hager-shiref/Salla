@@ -19,7 +19,6 @@ import 'package:shop_app/shared/constant.dart';
 class ShopCubit extends Cubit<ShopStates> {
   ShopCubit() : super(ShopInitialState());
   static ShopCubit get(context) => BlocProvider.of(context);
-  String lang='en';
   //=======================================================================================================================================================
 
   int currentIndex = 0;
@@ -39,7 +38,7 @@ class ShopCubit extends Cubit<ShopStates> {
   Map<int, bool> favourites = {};
   void getHomeData() {
     emit(ShopLoadingHomeDataState());
-    DioHelper.getData(url: HOME, token: token).then((value) {
+    DioHelper.getData(url: HOME, token: token,deviceLang: deviceLang).then((value) {
       homeModel = HomeModel.fromJson(value.data);
       for (var element in homeModel!.data!.products) {
         favourites.addAll({element.id!: element.inFavorites!});
@@ -56,7 +55,7 @@ class ShopCubit extends Cubit<ShopStates> {
   CategoriesModel? categoriesModel;
   void getCategoriesData() {
     DioHelper.getData(
-      url: GET_CATEGORIES,
+      url: GET_CATEGORIES, deviceLang: deviceLang,
     ).then((value) {
       categoriesModel = CategoriesModel.fromJson(value.data);
       emit(ShopSucceccCategoriesState());
@@ -90,8 +89,9 @@ class ShopCubit extends Cubit<ShopStates> {
   FavoritesModel? favoritesModel;
   void getFavoritesData() {
     emit(ShopLoadingGetFavoritesState());
-    DioHelper.getData(url: FAVOURITES, token: token).then((value) {
+    DioHelper.getData(url: FAVOURITES, token: token,deviceLang: deviceLang).then((value) {
       favoritesModel = FavoritesModel.fromJson(value.data);
+      print(value.data);
       emit(ShopSuccessFavoritesState());
     }).catchError((error) {
       print(error.toString());
@@ -102,8 +102,9 @@ class ShopCubit extends Cubit<ShopStates> {
   ShopLoginModel? userModel;
   void getUserData() {
     emit(ShopLoadingUserDataState());
-    DioHelper.getData(url: PROFILE, token: token).then((value) {
+    DioHelper.getData(url: PROFILE, token: token,deviceLang: deviceLang).then((value) {
       userModel = ShopLoginModel.fromJson(value.data);
+      print("UserModel : $value.data");
       emit(ShopSuccessUserDataState());
     }).catchError((error) {
       print(error.toString());
@@ -142,18 +143,5 @@ class ShopCubit extends Cubit<ShopStates> {
     );
   }
 //=======================================================================================================================================================
- void changeLanguage(String language)
 
-  {
-     if(language=='ar'){
-          lang=language;
-          print(lang);
-          emit(ShopChangeLanguageToArabic(lang));
-        }
-        else if(language=='en'){
-          lang=language;
-          print(lang);
-          emit(ShopChangeLanguageToEnglish(lang));
-        }
-  }
 }

@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   flutter_bloc: ^7.3.0
   bloc:
   dio: ^4.0.0
@@ -20,6 +22,10 @@ dependencies:
   carousel_slider: ^4.0.0
   conditional_builder_null_safety: ^0.0.4
   flutter_launcher_icons: ^0.10.0
+
+
+
+
 
   cupertino_icons: ^1.0.2
 flutter_icons:
@@ -33,9 +39,12 @@ dev_dependencies:
   flutter_lints: ^1.0.0
 flutter:
   uses-material-design: true
+  generate: true
+
 
   assets:
      - assets/images/
+     - assets/lang/
 
   fonts:
     - family: Jannah

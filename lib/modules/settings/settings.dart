@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/bloc/cubit/cubit.dart';
 import 'package:shop_app/bloc/cubit/states.dart';
+import 'package:shop_app/localization/app_localization.dart';
 import 'package:shop_app/shared/component.dart';
 import 'package:shop_app/shared/constant.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
@@ -26,7 +27,7 @@ class SettingsScreen extends StatelessWidget {
         phoneController.text = model.data!.phone!;
         return  ConditionalBuilder(
           condition: ShopCubit.get(context).userModel !=null,
-          builder:(context)=>  Padding(
+          builder:(context)=> Padding(
             padding: const EdgeInsets.all(20.0),
             child: Form(
               key: formKey,
@@ -45,11 +46,11 @@ class SettingsScreen extends StatelessWidget {
                       {
                         if(value.isEmpty)
                         {
-                          return'name must not be empty';
+                          return "warn_name".tr(context);
                         }
                         return null;
                       },
-                      label: "user name",
+                      label: "name".tr(context),
                       prefix: Icons.person,
                     ),
                    const SizedBox(
@@ -62,11 +63,11 @@ class SettingsScreen extends StatelessWidget {
                       {
                         if(value.isEmpty)
                         {
-                          return'email must not be empty';
+                          return "warn_email".tr(context);
                         }
                         return null;
                       },
-                      label:  "emailAddress",
+                      label:  "email_address".tr(context),
                       prefix: Icons.email,
                     ),
                    const SizedBox(
@@ -79,15 +80,17 @@ class SettingsScreen extends StatelessWidget {
                       {
                         if(value.isEmpty)
                         {
-                          return'phone must not be empty';
+                          return "warn_phone".tr(context);
                         }
                         return null;
                       },
-                      label:  "phone",
+                      label:  "phone".tr(context),
                       prefix: Icons.phone,
                     ),
-                   
-                    defaultTextButton(text:"update",
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    defaultTextButton(text:"update".tr(context),
                       function:(){
                       if(formKey.currentState!.validate())
                         {
@@ -103,14 +106,14 @@ class SettingsScreen extends StatelessWidget {
                       height: 15.0,
                     ),
 
-                    defaultTextButton(text: "logout",
+                    defaultTextButton(text: "logout".tr(context),
                       function:(){
                       signOut(context);
                     },
                     )
                   ],
                 ),
-              ),
+              )
             ),
           ),
           fallback: (context)=>const Center(child: CircularProgressIndicator(),),

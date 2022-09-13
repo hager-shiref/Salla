@@ -17,10 +17,10 @@ class Data {
   int? from;
   int? lastPage;
   String? lastPageUrl;
-  Null nextPageUrl;
+  String? nextPageUrl;
   String? path;
   int? perPage;
-  Null prevPageUrl;
+  String? prevPageUrl;
   int? to;
   int? total;
 

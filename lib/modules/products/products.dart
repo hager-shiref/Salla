@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/bloc/cubit/cubit.dart';
 import 'package:shop_app/bloc/cubit/states.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:shop_app/localization/app_localization.dart';
 import 'package:shop_app/models/categories_model.dart';
 import 'package:shop_app/models/home_model.dart';
 import 'package:shop_app/shared/component.dart';
@@ -66,10 +67,10 @@ class ProductsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "categories",
+                   Text(
+                    "categories".tr(context),
                     style:
-                         TextStyle(fontSize: 24.0, fontWeight: FontWeight.w800),
+                    const TextStyle(fontSize: 24.0, fontWeight: FontWeight.w800),
                   ),
                   const SizedBox(
                     height: 10.0,
@@ -90,10 +91,10 @@ class ProductsScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20.0,
                   ),
-                  const Text(
-                    "newProducts",
+                   Text(
+                    "new_products".tr(context),
                     style:
-                     TextStyle(fontSize: 24.0, fontWeight: FontWeight.w800),
+                    const TextStyle(fontSize: 24.0, fontWeight: FontWeight.w800),
                   ),
                 ],
               ),
@@ -137,9 +138,9 @@ class ProductsScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                         horizontal: 5.0,
                       ),
-                      child: const Text(
-                        "discount",
-                        style:TextStyle(fontSize: 8.0, color: Colors.white),
+                      child:  Text(
+                        "discount".tr(context),
+                        style:const TextStyle(fontSize: 8.0, color: Colors.white),
                       ),
                     )
                 ],

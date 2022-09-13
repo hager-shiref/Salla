@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/bloc/cubit/cubit.dart';
 import 'package:shop_app/bloc/cubit/states.dart';
+import 'package:shop_app/localization/app_localization.dart';
 import 'package:shop_app/modules/search/search.dart';
 import 'package:shop_app/shared/component.dart';
 
@@ -32,14 +33,14 @@ class ShopLayout extends StatelessWidget {
               cubit.changeBottom(index);
             },
             currentIndex: cubit.currentIndex,
-            items:const  [
-              BottomNavigationBarItem(icon:Icon(Icons.home), label: "Home"),
+            items:  [
+              BottomNavigationBarItem(icon:const Icon(Icons.home), label: "Home".tr(context)),
                BottomNavigationBarItem(
-                  icon:  Icon(Icons.apps), label:"categories"),
+                  icon:  const Icon(Icons.apps), label:"categories".tr(context)),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.favorite_outlined), label:"Favourites"),
+                  icon: const Icon(Icons.favorite_outlined), label:"Favourites".tr(context)),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.settings), label: "Settings")
+                  icon:const Icon(Icons.settings), label: "Settings".tr(context))
             ],
           ),
         );

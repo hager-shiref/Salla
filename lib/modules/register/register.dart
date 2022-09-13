@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/layout/shop_layout.dart';
+import 'package:shop_app/localization/app_localization.dart';
 import 'package:shop_app/modules/register/cubit/cubit.dart';
 import 'package:shop_app/modules/register/cubit/states.dart';
 import 'package:shop_app/network/local/cach_helper.dart';
@@ -47,7 +48,7 @@ class ShopRegisterScreen extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              title: const Text("Register"),
+              title: Text("register".tr(context)),
             ),
             body: Center(
               child: SingleChildScrollView(
@@ -58,13 +59,13 @@ class ShopRegisterScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("register",
+                        Text("register".tr(context),
                             style: Theme.of(context)
                                 .textTheme
                                 .headline4!
                                 .copyWith(color: Colors.black)),
                         Text(
-                          "registerNow",
+                          "register_now".tr(context),
                           style: Theme.of(context)
                               .textTheme
                               .bodyText1!
@@ -78,11 +79,11 @@ class ShopRegisterScreen extends StatelessWidget {
                           type: TextInputType.name,
                           validate: (value) {
                             if (value!.isEmpty) {
-                              return 'please enter your name';
+                              return "warn_name".tr(context);
                             }
                             return null;
                           },
-                          label: "userName",
+                          label: "name".tr(context),
                           prefix: Icons.person,
                           onTap: null,
                         ),
@@ -94,11 +95,11 @@ class ShopRegisterScreen extends StatelessWidget {
                           type: TextInputType.emailAddress,
                           validate: (value) {
                             if (value!.isEmpty) {
-                              return 'please enter your email address';
+                              return  "warn_email".tr(context);
                             }
                             return null;
                           },
-                          label:"emailAddress",
+                          label:"email_address".tr(context),
                           prefix: Icons.email_outlined,
                         ),
                         const SizedBox(
@@ -114,7 +115,7 @@ class ShopRegisterScreen extends StatelessWidget {
                               }
                               return null;
                             },
-                            label: "password",
+                            label: "password".tr(context),
                             prefix: Icons.lock_outline,
                             suffix: ShopRegisterCubit.get(context).suffix,
                             isPassword:
@@ -131,11 +132,11 @@ class ShopRegisterScreen extends StatelessWidget {
                           type: TextInputType.phone,
                           validate: (value) {
                             if (value!.isEmpty) {
-                              return 'please enter your phone number';
+                              return "warn_pass".tr(context);
                             }
                             return null;
                           },
-                          label: "phone",
+                          label: "phone".tr(context),
                           prefix: Icons.phone,
                         ),
                         const SizedBox(
@@ -144,7 +145,7 @@ class ShopRegisterScreen extends StatelessWidget {
                         state is! ShopRegisterLoadingState
                             ? Center(
                               child: defaultTextButton(
-                                  text: "register",
+                                  text: "register".tr(context),
                                   function: () {
                                     if (formKey.currentState!.validate()) {
                                       ShopRegisterCubit.get(context).userRegister(

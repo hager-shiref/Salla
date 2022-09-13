@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/models/login_model.dart';
@@ -22,7 +21,6 @@ class ShopRegisterCubit extends Cubit<ShopRegisterStates> {
 
     DioHelper.postData(
       url: REGISTER,
-      lang: 'en',
       data: {
         'email': email,
         'password': password,

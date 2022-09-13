@@ -1,0 +1,23 @@
+{
+  "login": "LOGIN",
+  "login_detail": "login now to enjoy with our hot offers ",
+  "email_address": "emailAddress",
+  "password": "password",
+  "warn_email": "please , enter your email",
+  "warn_pass": "please , enter your password",
+  "new_user": "Don't have an Account ?  ",
+  "register": "Register",
+  "register_now": "registerNow",
+  "name": "userName",
+  "warn_name": "please enter your name",
+  "phone": "phone",
+  "Home": "Home",
+  "categories": "Categories",
+  "Favourites": "Favourites",
+  "Settings": "Settings",
+  "new_products": "New Products",
+  "discount": "Discount",
+  "search": "Search",
+  "update": "update",
+  "logout": "Logout"
+}

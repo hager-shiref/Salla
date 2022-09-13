@@ -13,11 +13,11 @@ class DioHelper {
   static Future<Response> getData(
       {required String url,
       Map<String, dynamic>? query,
-        lang='en',
+        required deviceLang,
       String? token}) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
-      'lang': lang,
+      'lang': deviceLang,
       'Authorization': token
     };
     return await dio.get(url, queryParameters: query);
@@ -28,9 +28,9 @@ class DioHelper {
       {required String url,
       Map<String, dynamic>? query,
       required Map<String, dynamic> data,
-        lang='en',
+        deviceLang,
       String? token}) async {
-    dio.options.headers = {'lang': lang, 'Authorization': token};
+    dio.options.headers = {'lang': deviceLang, 'Authorization': token};
     return await dio.post(url, queryParameters: query, data: data);
   }
 
@@ -40,10 +40,10 @@ class DioHelper {
       {required String url,
        required Map<String, dynamic> data,
       Map<String, dynamic>? query,
-        lang ='en',
+        deviceLang,
       String? token
       }) async {
-    dio.options.headers = {'lang': lang, 'Authorization': token};
+    dio.options.headers = {'lang': deviceLang, 'Authorization': token};
     return await dio.put(url, queryParameters: query, data: data);
   }
 }

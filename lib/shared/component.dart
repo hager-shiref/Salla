@@ -53,7 +53,7 @@ Widget defaultTextButton({
     ElevatedButton(
         style: TextButton.styleFrom(
           padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
-          primary: Colors.white,
+          foregroundColor: Colors.white,
           textStyle: const TextStyle(fontSize: 15),
         ),
         onPressed: () {

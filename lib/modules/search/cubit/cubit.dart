@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/models/search.dart';
 import 'package:shop_app/modules/search/cubit/states.dart';
@@ -20,7 +19,6 @@ class SearchCubit extends Cubit<SearchStates> {
 
     DioHelper.postData(
       url: SEARCH,
-      lang: 'en',
       data:
       {
         'text':text,
@@ -28,10 +26,7 @@ class SearchCubit extends Cubit<SearchStates> {
       token: token ,
     ).then((value)
     {
-
       searchModel = SearchModel.fromJson(value.data);
-
-
       emit(SearchSuccessState()) ;
     }).catchError((error)
     {
