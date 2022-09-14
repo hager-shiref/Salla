@@ -42,35 +42,35 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        //BlocProvider(create: (context)=> ShopLoginCubit()),
-        BlocProvider(create: (context)=>ShopCubit()..getHomeData()..getCategoriesData()..getFavoritesData()..getUserData())
+        BlocProvider(create: (context)=>
+        ShopCubit()..getHomeData()..getCategoriesData()..getFavoritesData()..getUserData())
       ],
       child: MaterialApp(
+        // locale:  Locale(locale),
         supportedLocales:const [
           Locale('en','US'),
           Locale('ar','')
         ],
-
         localizationsDelegates:const[
           AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate
         ],
-       localeResolutionCallback: (deviceLocale,supportedLocales)
-       {
-         for(var locale in supportedLocales){
-           if(deviceLocale !=null && deviceLocale.languageCode==locale.languageCode){
-             deviceLang=deviceLocale.languageCode;
-             return deviceLocale;
-           }
-         }
-         return supportedLocales.first;
-       },
+        localeResolutionCallback: (deviceLocale,supportedLocales)
+        {
+          for(var locale in supportedLocales){
+            if(deviceLocale !=null && deviceLocale.languageCode==locale.languageCode){
+              deviceLang=deviceLocale.languageCode;
+              return deviceLocale;
+            }
+          }
+          return supportedLocales.first;
+        },
         debugShowCheckedModeBanner: false,
         theme: lightTheme,
         home: startWidget,
-      ),
-    );
+      )
+      );
   }
 }

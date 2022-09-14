@@ -17,7 +17,7 @@ class ProductsScreen extends StatelessWidget {
     return BlocConsumer<ShopCubit, ShopStates>(
       listener: (context, state)
        {
-         if(state is ShopSucceccChangeFavoritesState)
+         if(state is ShopSuccessChangeFavoritesState)
          {
            if(!state.model.status!){
               showToast(txt: state.model.message!, state: ToastStates.ERROR);

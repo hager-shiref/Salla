@@ -19,6 +19,7 @@ import 'package:shop_app/shared/constant.dart';
 class ShopCubit extends Cubit<ShopStates> {
   ShopCubit() : super(ShopInitialState());
   static ShopCubit get(context) => BlocProvider.of(context);
+  //var cachedLanguageCode="en";
   //=======================================================================================================================================================
   int currentIndex = 0;
   List<Widget> screen = [
@@ -43,7 +44,7 @@ class ShopCubit extends Cubit<ShopStates> {
         favourites.addAll({element.id!: element.inFavorites!});
       }
       print(favourites.toString());
-      emit(ShopSucceccHomeDataState());
+      emit(ShopSuccessHomeDataState());
     }).catchError((error) {
       print(error.toString());
       emit(ShopErrorHomeDataState(error.toString()));
@@ -54,10 +55,10 @@ class ShopCubit extends Cubit<ShopStates> {
   CategoriesModel? categoriesModel;
   void getCategoriesData() {
     DioHelper.getData(
-      url: GET_CATEGORIES, deviceLang: deviceLang,
+      url: GET_CATEGORIES, deviceLang:deviceLang ,
     ).then((value) {
       categoriesModel = CategoriesModel.fromJson(value.data);
-      emit(ShopSucceccCategoriesState());
+      emit(ShopSuccessCategoriesState());
     }).catchError((error) {
       print(error.toString());
       emit(ShopErrorCategoriesState(error.toString()));
@@ -78,13 +79,12 @@ class ShopCubit extends Cubit<ShopStates> {
       } else {
         getFavoritesData();
       }
-      emit(ShopSucceccChangeFavoritesState(changeFavoritesModel!));
+      emit(ShopSuccessChangeFavoritesState(changeFavoritesModel!));
     }).catchError((error) {
       favourites[productId] = !favourites[productId]!;
       emit(ShopErrorChangeFavoritesState(error));
     });
   }
-
   FavoritesModel? favoritesModel;
   void getFavoritesData() {
     emit(ShopLoadingGetFavoritesState());
@@ -97,7 +97,7 @@ class ShopCubit extends Cubit<ShopStates> {
       emit(ShopErrorFavoritesState(error.toString()));
     });
   }
-
+//=======================================================================================================================================================
   ShopLoginModel? userModel;
   void getUserData() {
     emit(ShopLoadingUserDataState());
@@ -143,4 +143,16 @@ class ShopCubit extends Cubit<ShopStates> {
   }
 //=======================================================================================================================================================
 
+
+  /*Future <void>getSavedLanguage()async{
+    cachedLanguageCode=await LanguageCacheHelper().getCachedLanguageCode();
+    emit(ChangeLocaleState(locale: Locale(cachedLanguageCode)));
+  }
+
+  Future<void>changeLanguage(String languageCode)async{
+    await  LanguageCacheHelper.cacheLanguageCode(languageCode);
+    emit(ChangeLocaleState(locale: Locale(languageCode)));
+
+  }
+*/
 }

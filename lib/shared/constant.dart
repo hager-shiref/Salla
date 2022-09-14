@@ -22,4 +22,6 @@ void printFullText(String text)
 
 String? token ;
 
-var deviceLang ;
+
+var deviceLang;
+

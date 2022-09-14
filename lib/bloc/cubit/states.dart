@@ -1,6 +1,5 @@
 import 'package:shop_app/models/change_favourites_model.dart';
 import 'package:shop_app/models/login_model.dart';
-
 abstract class ShopStates {}
 
 class ShopInitialState extends ShopStates {}
@@ -9,14 +8,14 @@ class ShopChangeBottom extends ShopStates {}
 
 class ShopLoadingHomeDataState extends ShopStates {}
 
-class ShopSucceccHomeDataState extends ShopStates {}
+class ShopSuccessHomeDataState extends ShopStates {}
 
 class ShopErrorHomeDataState extends ShopStates {
   final String error;
   ShopErrorHomeDataState(this.error);
 }
 
-class ShopSucceccCategoriesState extends ShopStates {}
+class ShopSuccessCategoriesState extends ShopStates {}
 
 class ShopErrorCategoriesState extends ShopStates {
   final String error;
@@ -25,10 +24,10 @@ class ShopErrorCategoriesState extends ShopStates {
 
 class ShopChangeFavoritesState extends ShopStates {}
 
-class ShopSucceccChangeFavoritesState extends ShopStates 
+class ShopSuccessChangeFavoritesState extends ShopStates
 {
   final ChangeFavoritesModel model;
-  ShopSucceccChangeFavoritesState(this.model);
+  ShopSuccessChangeFavoritesState(this.model);
 }
 
 class ShopErrorChangeFavoritesState extends ShopStates {
@@ -66,3 +65,6 @@ class ShopErrorUpdateUserDataState extends ShopStates
   ShopErrorUpdateUserDataState(this.error);
 }
 
+/*class ChangeLocaleState extends ShopStates{
+  final Locale locale;
+  ChangeLocaleState({required this.locale});}*/
